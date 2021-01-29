@@ -1,0 +1,15 @@
+<form id="njs-challenge" action="/challenge" method="post">
+  <p id="njs-challenge_text">Pick all images matching: <%= challenge.lookingFor %>
+  </p>
+  <div id="njs-challenge_images">
+    <% challenge.images.forEach((url, index)=> { %>
+      <div class="njs-challenge_item">
+        <input class="njs-challenge_checkbox" type="checkbox" id="njs-challenge_<%= index %>" name="<%= index %>" />
+        <label class="njs-challenge_label" for="njs-challenge_<%= index %>">
+          <img class="njs-challenge_image" src="<%= url %>" />
+        </label>
+      </div>
+      <% }) %>
+  </div>
+  <button id="njs-challenge_submit" type="submit">Submit Challenge</button>
+</form>

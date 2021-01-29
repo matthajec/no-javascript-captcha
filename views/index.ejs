@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/njsChallenge.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <% if(!passedCaptcha) { %>
+    <h1>Please verify you are not a robot</h1>
+    <%- include ('./components/njsCaptchaChallenge') %>
+      <% } else { %>
+        <h1>Congratulations, you're probably human</h1>
+        <form action="/destroy-session" method="POST">
+          <button type="submit">Destroy Session</button>
+        </form>
+        <% } %>
+</body>
+
+</html>
